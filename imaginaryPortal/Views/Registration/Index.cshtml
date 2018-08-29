@@ -1,0 +1,163 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <br /><br />
+    <div class="well">
+        <div class="row">
+            <div class="page-header">
+                <h2 class="panel-heading" style="text-align:center">Register from below</h2>
+            </div>
+            <form data-toggle="validator" class="col-md-12" role="form" enctype="multipart/form-data" >
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group has-feedback">
+                            <label for="inputName" class="control-label">First Name</label>
+                            <input type="text" class="form-control" id="txtFirstName" placeholder="First Name" name="FirstName" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group has-feedback">
+                            <label for="inputName" class="control-label">Last Name</label>
+                            <input type="text" class="form-control" id="txtLastName" placeholder="Last Name" name="LastName" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group has-feedback">
+                            <label for="inputTwitter" class="control-label">Email</label>
+                            <input type="email" class="form-control" id="txtEmail" placeholder="Email" name="Email" data-error=" Invalid email adddress" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        </div>
+                    <div class="col-md-3">
+                        <div class="form-group has-feedback">
+                            <label for="inputName" class="control-label">Mobile</label>
+                            <input type="text" class="form-control" id="txtMobile" maxlength="10" placeholder="Mobile" name="Mobile" data-error=" Invalid mobile no" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group has-feedback">
+                            <label for="inputName" class="control-label">Photo</label>
+                            <input type="file" class="form-control" id="Pic" placeholder="Pic" name="Pic" data-error="Please select a valid image" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div id="imgPreview" class="thumbnail" style="display:none">
+                            <img class="img-responsive" id="targetImg" width="200" height="100" />
+                            <div class="figure-caption">
+                                <a href="#" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group has-feedback">
+                            <label for="inputName" class="control-label">Country</label>
+                            <select class="form-control" id="country" name="Country" required>
+                                
+                            </select>
+
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group has-feedback">
+                            <label for="inputName" class="control-label">State</label>
+                            <select class="form-control" id="state" name="State" required>
+                                
+                            </select>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group has-feedback">
+                            <label for="inputName" class="control-label">City</label>
+                            <select class="form-control" id="city" name="City" required>
+                                
+                            </select>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="Gender" required>
+                                    Male
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="Gender" required>
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group has-feedback">
+                            <label for="inputPassword" class="control-label">Password</label>
+                            <input type="password" data-minlength="6" class="form-control" id="txtPassword" name="Password" placeholder="Password" data-error="invalid passsword" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors "></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group has-feedback">
+                            <label for="inputPassword" class="control-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#txtPassword" data-match-error="Password don't match" placeholder="Confirm" required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+         
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="terms" data-error="Please accept terms and condition" required>
+                          Check
+                        </label>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-offset-5">
+                        <button type="submit" class="btn btn-primary btn-group-sm col-md-3" id="btnSubmit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/custom/user.js"></script>
+
+</body>
+</html>

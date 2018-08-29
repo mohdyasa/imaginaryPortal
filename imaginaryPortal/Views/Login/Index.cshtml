@@ -1,0 +1,30 @@
+﻿@model imaginaryPortal.Models.tblUser
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    <br />
+    <br />
+    <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                @ViewBag.m
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.email)
+                        @Html.TextBoxFor(m => m.email, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.password)
+                        @Html.TextBoxFor(m => m.password, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+            </div>
+            <input type="submit" value="Login" class="btn btn-primary" />
+        </div>
+    </div>
+
+
+}
