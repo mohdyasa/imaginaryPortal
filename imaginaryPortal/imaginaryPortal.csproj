@@ -189,6 +189,8 @@
     <Compile Include="Models\imaginaryDbContext.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\loginViewModel.cs" />
+    <Compile Include="ViewModel\userViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -269,6 +271,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Login\Dashboard.cshtml" />
     <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\Registration\Login.cshtml" />
+    <Content Include="Views\Registration\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using imaginaryPortal.ViewModel;
 namespace imaginaryPortal.Controllers.api
 {
     public class masterController : ApiController
@@ -17,11 +17,11 @@ namespace imaginaryPortal.Controllers.api
             _context = new imaginaryDbContext();
         }
         [HttpPost]
-        public IHttpActionResult addUser(User u)
+        public IHttpActionResult addUser(userViewModel u)
         {
             if(ModelState.IsValid)
             {
-                _context.Users.Add(u);
+                //_context.Users.Add(u);
                // _context.SaveChanges();
                 ModelState.Clear();
                 return Ok();
@@ -31,6 +31,11 @@ namespace imaginaryPortal.Controllers.api
                 return BadRequest();
             }
             
+        }
+        [HttpGet]
+        public IEnumerable<User> loadUsers()
+        {
+            return _context.Users.ToList();
         }
     }
 }

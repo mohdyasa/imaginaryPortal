@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-
+    bindTable();
     load_json_data('country');
     function load_json_data(id, parent_id) {
         var html_code = '';
@@ -53,36 +53,35 @@
     })
 });
 
-$(document).on('click', '#btnSubmit', function () {
-    var pic = $("#imageBrowes").get(0).files;
-    var data = new FormData;
-    data.append("Photo", file[0]);
-    data.append("FullName", $('#txtFirstName').val() + $('#txtLastName').val());
-    data.append("Email", $('#txtEmail').val());
-    data.append("Country", $('#country').find(":selected").text());
-    data.append("State", $('#state').find(":selected").text());
-    data.append("City", $('#city').find(":selected").text());
-    data.append("Password", $('#txtPassword').val());
-    data.append("Mobile", $('#txtMobile').val());
-    data.append("Gender", $('input[name=Gender]:checked').attr('name'));
-
-
-    console.log(data);
-    //$.ajax({
-    //    url: '/myData/Index',
-    //    type: 'POST',
-    //    data: data,
-    //    contentType: false,
-    //    processData: false,
-    //    dataType: 'json',
-    //    success: function () {
-    //        $("#imageBrowes").val('');
-    //        $("#description").text('');
-    //        $("#imgPreview").hide();
-    //        alert("saved");
-    //    }
-    //});
-});
+//$(document).on('click', '#btnSubmit', function () {
+   
+//    var pic = $("#Pic").get(0).files;
+//    var data = new FormData;
+//    data.append("Photo", pic[0]);
+//    data.append("FullName", $('#txtFirstName').val() + $('#txtLastName').val());
+//    data.append("Email", $('#txtEmail').val());
+//    data.append("Country", $('#country').find(":selected").text());
+//    data.append("State", $('#state').find(":selected").text());
+//    data.append("City", $('#city').find(":selected").text());
+//    data.append("Password", $('#txtPassword').val());
+//    data.append("Mobile", $('#txtMobile').val());
+//    data.append("Gender", $('input[name=Gender]:checked', 'frmUSer').val());
+//    console.log(data);
+//    $.ajax({
+//        url: '/Registration/Index',
+//        type: 'POST',
+//        data: data,
+//        contentType: false,
+//        processData: false,
+//        dataType: 'json',
+//        success: function () {
+//            $("#imageBrowes").val('');
+//            $("#description").text('');
+//            $("#imgPreview").hide();
+//            alert("saved");
+//        }
+//    });
+//});
 
 
 var ReadImage = function (file) {
@@ -106,4 +105,17 @@ var ReadImage = function (file) {
 function ClearPreview() {
     $("#imgPreview").toggle();
     $("#Pic").val('');
+}
+
+ function bindTable () {
+    $.ajax({
+        type: 'GET',
+        url: '/api/master/loadUsers',
+        dataType: 'JSON',
+        success: function (data) {
+            console.log(data);
+        }
+
+
+    });
 }

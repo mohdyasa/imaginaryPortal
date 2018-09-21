@@ -22,7 +22,7 @@
             <div class="page-header">
                 <h2 class="panel-heading" style="text-align:center">Register from below</h2>
             </div>
-            <form data-toggle="validator" class="col-md-12" role="form" enctype="multipart/form-data" >
+            <form data-toggle="validator" class="col-md-12" role="form" id="frmUser" action="/Registration/Index" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group has-feedback">
@@ -109,13 +109,13 @@
                             <label>Gender</label>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="Gender" required>
+                                    <input type="radio" name="Gender" value="Male" required>
                                     Male
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="Gender" required>
+                                    <input type="radio" name="Gender" value="Female" required>
                                     Female
                                 </label>
                             </div>
